@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { menuContext } from "../hooks/appState";
 import {
   AppBar,
   Toolbar,
@@ -7,7 +9,10 @@ import {
   Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+
 export default function ButtonMenu() {
+  const { isOpened, setOpened } = useContext(menuContext);
+  const toggleOpen = () => setOpened(!isOpened);
   return (
     <>
       <IconButton
@@ -16,6 +21,7 @@ export default function ButtonMenu() {
         color="inherit"
         aria-label="menu"
         sx={{ mr: 2 }}
+        onClick={toggleOpen}
       >
         <MenuIcon />
       </IconButton>

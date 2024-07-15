@@ -22,7 +22,11 @@ export default function ButtonAppBar() {
   return (
     <ThemeProvider theme={darkTheme}>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="primary">
+        <AppBar
+          color="primary"
+          position="fixed"
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
           <Toolbar>
             <ButtonMenu />
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
